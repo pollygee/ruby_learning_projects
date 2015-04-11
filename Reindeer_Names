@@ -1,0 +1,9 @@
+def sort_reindeer reindeer_names
+  reindeer_names.sort_by do |name|
+  	name.split(" ").reverse.join.upcase
+  end
+end
+
+#names = ["John Smith", "Dan Boone", "Jennifer Jane", "Charles Lindy", "Jennifer Eight", "Rob Roy"]
+puts sort_reindeer ["John Smith", "Dan Boone", "Jennifer Jane", "Charles Lindy", "Jennifer Eight", "Rob Roy"]
+# puts sort_reindeer(names)

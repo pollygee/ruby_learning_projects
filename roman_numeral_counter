@@ -1,0 +1,26 @@
+conversion = {"I" => 1, "V" => 5, "X" => 10, "L" => 50, "C" => 100, "D" => 500, "M" => 1000 }
+rom_num = ""
+while rom_num != "EXIT"
+	puts 'Please enter a roman numeral or "exit" if you are finished: '
+	rom_num = gets.chomp.upcase
+
+	arabic = 0
+
+	#Subtractive  exceptions
+	rom_num.each_char.with_index do |n, index|
+		#Check it's no the first char
+		if index > 0
+			#Look for IV and IX exception
+			if (n == "V" || n == "X") && (rom_num[index - 1] =="I")
+				arabic -= 2
+			#Look for XL and XC exception
+			elsif (n == "L" || n == "C") && (rom_num[index -1] == "X")
+				arabic -=20
+			elsif (n == "D" || n == "M") && (rom_num[index -1] =="C")
+				arabic -=200
+			end
+		end
+		arabic += conversion[n]
+	end
+puts arabic
+end

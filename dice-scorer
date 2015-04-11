@@ -1,0 +1,36 @@
+def score(dice)
+  total = 0
+  unique = dice.uniq
+  unique.each do |x|
+  	occur = dice.count(x)
+  	if x ==1
+  		if occur >= 3
+  			total += 1000 + ((occur - 3) * 100)
+  		else
+  			total += (occur * 100)
+  		end
+  	elsif x == 5 
+  		if occur >=3
+  			total = (500) + ((occur - 3) * 50)
+  		else
+  		total += (occur * 50)
+  		end
+  	elsif occur == 3
+  		total += (x * 100)
+  	end
+  end
+  return total
+end
+
+
+puts score([]), "should be 0"
+puts score([5]), "should be 50"
+puts score([1]), "should be 100"
+puts score([1,5,5,1]), "should be 300"
+puts score([2,3,4,6]), "should be 0"
+puts score([1,1,1]), "should be 1000"
+puts score([2,2,2]), "should be 200"
+puts score([3,3,3]), "should be 300"
+puts score([1,1,1,5,1]), "should be 1150"
+puts score([5,5,5,5]), "should be 550"
+
