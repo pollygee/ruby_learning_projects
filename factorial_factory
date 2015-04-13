@@ -1,0 +1,24 @@
+#Factorial Factory Kata
+
+# This function should return n!
+def factorial(n)
+	fact = 1
+  if n == 0 || n == 1
+  	fact 
+  elsif n > 1
+  	while n > 0
+  		fact *= n
+  		n -= 1
+  	end
+  else
+  	return nil
+  end
+puts fact
+end
+
+
+
+puts factorial(0)
+puts factorial(1)
+puts factorial(3)
+puts factorial(5)
